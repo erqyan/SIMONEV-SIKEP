@@ -22,26 +22,31 @@ Aplikasi internal penjaminan mutu (*data quality assurance*), pemantauan, dan ev
 ## 🚀 Panduan Menjalankan Proyek Secara Lokal
 
 ### Prasyarat
-- PHP 8.2+ (disarankan PHP 8.4 / 8.5)
+- PHP 8.2+ (Kompatibel dengan XAMPP Windows PHP 8.2 & Linux Ubuntu PHP 8.5)
 - Composer 2.x
-- MySQL 8.0+ / MariaDB 10.6+
+- MySQL 8.0+ / MariaDB 10.6+ (Bawaan XAMPP MySQL)
 
-### Langkah Instalasi
-```bash
-# 1. Salin konfigurasi environment
-cp .env.example .env
+### Langkah Instalasi (Windows CMD / PowerShell / XAMPP)
 
-# 2. Pasang dependensi PHP
+Buka Command Prompt (CMD) atau PowerShell di folder proyek, lalu jalankan:
+
+```cmd
+:: 1. Salin konfigurasi environment (Gunakan copy untuk Windows)
+copy .env.example .env
+
+:: 2. Pasang dependensi proyek
 composer install
 
-# 3. Generate Application Key
+:: 3. Generate Application Key
 php artisan key:generate
 
-# 4. Migrasi Database (Pastikan database MySQL sudah dibuat)
+:: 4. Migrasi Database (Pastikan database simonev_sikep telah dibuat di phpMyAdmin / MySQL)
 php artisan migrate
 
-# 5. Jalankan Local Server
+:: 5. Jalankan Local Server
 php artisan serve
 ```
 
-Buka aplikasi di peramban pada alamat: `http://localhost:8000`.
+> **Untuk pengguna Linux / macOS:** Perintah langkah 1 dapat menggunakan `cp .env.example .env`.
+
+Buka aplikasi di peramban pada alamat: **`http://localhost:8000`**.
