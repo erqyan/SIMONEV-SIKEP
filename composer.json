@@ -83,6 +83,10 @@
             "advisories": {
                 "block": false
             }
+        },
+        "audit": {
+            "abandoned": "report",
+            "block-insecure": false
         }
     },
     "minimum-stability": "stable",

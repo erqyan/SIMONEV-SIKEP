@@ -13,13 +13,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         :root {
-            --ma-navy: #0F172A;
+            --ma-navy: #0E1B30;
+            --ma-navy-dark: #0A1424;
+            --ma-teal: #1B2F4B;
+            --ma-teal-dark: #14233B;
             --ma-gold: #D97706;
             --ma-gold-light: #F59E0B;
         }
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0B1120 0%, #0F172A 50%, #1E293B 100%);
+            background: linear-gradient(135deg, #0A1424 0%, #0E1B30 50%, #1E3A5C 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -29,8 +32,8 @@
         }
         .login-card {
             background: #FFFFFF;
-            color: #0F172A;
-            border-radius: 16px;
+            color: var(--ma-navy-dark);
+            border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
             max-width: 440px;
             width: 100%;
@@ -38,7 +41,7 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .login-header {
-            background: linear-gradient(180deg, #0F172A 0%, #1E293B 100%);
+            background: linear-gradient(180deg, var(--ma-navy-dark) 0%, var(--ma-navy) 100%);
             padding: 2.25rem 2rem 1.75rem 2rem;
             text-align: center;
             position: relative;
@@ -50,7 +53,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #D97706 0%, #F59E0B 50%, #D97706 100%);
+            background: linear-gradient(90deg, var(--ma-gold) 0%, var(--ma-gold-light) 50%, var(--ma-gold) 100%);
         }
         .login-logo {
             width: 72px;
@@ -77,19 +80,31 @@
         .login-body {
             padding: 2rem 2rem 2.25rem 2rem;
         }
-        .form-control {
+        .form-control,
+        .form-select {
             border-radius: 8px;
             padding: 0.7rem 0.9rem;
             border: 1px solid #CBD5E1;
             font-size: 0.92rem;
         }
-        .form-control:focus {
-            border-color: #2563EB;
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--ma-teal);
+            box-shadow: 0 0 0 3px rgba(27, 47, 75, 0.15);
+        }
+        .input-group-text {
+            background: #F4F6F7;
+            border: 1px solid #CBD5E1;
+            border-right: none;
+            color: #64748B;
+            border-radius: 8px 0 0 8px;
+        }
+        .input-group .form-control {
+            border-radius: 0 8px 8px 0;
         }
         .btn-masuk {
-            background: linear-gradient(180deg, #1E3A8A 0%, #0F172A 100%);
-            color: #FFFFFF;
+            background: linear-gradient(180deg, #F59E0B 0%, var(--ma-gold) 100%);
+            color: #1B2F4B;
             font-weight: 600;
             padding: 0.75rem;
             border-radius: 8px;
@@ -97,13 +112,13 @@
             transition: all 0.2s;
         }
         .btn-masuk:hover {
-            background: linear-gradient(180deg, #1E40AF 0%, #1E293B 100%);
+            background: linear-gradient(180deg, var(--ma-gold) 0%, #B45309 100%);
             color: #FFFFFF;
             transform: translateY(-1px);
         }
         .quick-role-btn {
-            background: #F8FAFC;
-            border: 1px solid #E2E8F0;
+            background: #F4F6F7;
+            border: 1px solid #CBD5E1;
             border-radius: 6px;
             font-size: 0.75rem;
             font-weight: 600;
@@ -116,9 +131,9 @@
             transition: all 0.15s;
         }
         .quick-role-btn:hover {
-            background: #EFF6FF;
-            color: #1D4ED8;
-            border-color: #BFDBFE;
+            background: #FEF3C7;
+            color: var(--ma-teal-dark);
+            border-color: #FDE68A;
         }
     </style>
 </head>
@@ -147,7 +162,7 @@
                 <div class="mb-3">
                     <label class="form-label fw-semibold small text-muted">Username / NIP</label>
                     <div class="input-group">
-                        <span class="input-group-text bg-light text-muted"><i class="bi bi-person"></i></span>
+                        <span class="input-group-text"><i class="bi bi-person"></i></span>
                         <input type="text" class="form-control" name="username" value="admin" placeholder="Masukkan username atau NIP" required>
                     </div>
                 </div>
@@ -158,7 +173,7 @@
                         <a href="#" class="small text-decoration-none text-muted" onclick="alert('Silakan hubungi Administrator IT Satuan Kerja untuk reset password.')">Lupa?</a>
                     </div>
                     <div class="input-group">
-                        <span class="input-group-text bg-light text-muted"><i class="bi bi-key"></i></span>
+                        <span class="input-group-text"><i class="bi bi-key"></i></span>
                         <input type="password" class="form-control" name="password" value="password" placeholder="Masukkan kata sandi" required>
                     </div>
                 </div>
@@ -176,13 +191,13 @@
                     </div>
                     <div class="d-flex justify-content-center gap-2 flex-wrap">
                         <a href="{{ route('role.switch', 'admin') }}" class="quick-role-btn">
-                            <i class="bi bi-shield-fill text-primary"></i> Administrator
+                            <i class="bi bi-shield-fill" style="color:var(--ma-teal);"></i> Administrator
                         </a>
                         <a href="{{ route('role.switch', 'petugas') }}" class="quick-role-btn">
-                            <i class="bi bi-person-workspace text-warning"></i> Petugas
+                            <i class="bi bi-person-workspace" style="color:var(--ma-gold);"></i> Petugas
                         </a>
                         <a href="{{ route('role.switch', 'reviewer') }}" class="quick-role-btn">
-                            <i class="bi bi-award-fill text-success"></i> Reviewer/Pimpinan
+                            <i class="bi bi-award-fill" style="color:var(--ma-teal-dark);"></i> Reviewer/Pimpinan
                         </a>
                     </div>
                 </div>

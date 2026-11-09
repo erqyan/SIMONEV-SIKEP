@@ -57,7 +57,7 @@ class SimonevWebController extends Controller
 
     public function dashboard(): View
     {
-        return view('dashboard.index');
+        return view('pegawai.show', ['id' => 1]);
     }
 
     public function pegawai(): View

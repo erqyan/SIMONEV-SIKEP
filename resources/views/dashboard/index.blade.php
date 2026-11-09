@@ -5,22 +5,6 @@
 @section('content')
 <div class="container-fluid px-0">
 
-    <!-- Header Section -->
-    <div class="d-md-flex justify-content-between align-items-center mb-4">
-        <div>
-            <h2 class="h4 fw-bold text-dark mb-1">Dashboard Eksekutif & Ringkasan KPI</h2>
-            <p class="text-muted small mb-0">Pemantauan Real-Time Kualitas, Validitas, dan Kepatuhan Data Kepegawaian SIKEP</p>
-        </div>
-        <div class="mt-3 mt-md-0 d-flex gap-2">
-            <a href="{{ route('monitoring.index') }}" class="btn btn-ma-gold btn-sm d-flex align-items-center gap-2">
-                <i class="bi bi-plus-circle-fill"></i> Mulai Monitoring Pegawai
-            </a>
-            <a href="{{ route('laporan.index') }}" class="btn btn-outline-secondary btn-sm d-flex align-items-center gap-2">
-                <i class="bi bi-file-earmark-pdf"></i> Ekspor Laporan Monev
-            </a>
-        </div>
-    </div>
-
     <!-- 4 KPI Stat Cards -->
     <div class="row g-3 mb-4">
         <!-- Stat 1: Total Pegawai -->
@@ -34,12 +18,12 @@
                             <span class="text-dark fw-semibold">42 PNS</span> &bull; <span class="text-muted">6 PPPK/Honorer</span>
                         </div>
                     </div>
-                    <div class="card-stat-icon bg-primary bg-opacity-10 text-primary">
+                    <div class="card-stat-icon bg-primary">
                         <i class="bi bi-people-fill"></i>
                     </div>
                 </div>
-                <div class="progress mt-3" style="height: 4px;">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%"></div>
+                <div class="progress mt-3" style="height: 4px; background: #FEF3C7;">
+                    <div class="progress-bar" style="width: 100%; background: var(--ma-teal);"></div>
                 </div>
             </div>
         </div>
@@ -55,12 +39,12 @@
                             <i class="bi bi-graph-up-arrow"></i> <strong>75.0%</strong> Capaian Semester I
                         </div>
                     </div>
-                    <div class="card-stat-icon bg-success bg-opacity-10 text-success">
+                    <div class="card-stat-icon bg-success">
                         <i class="bi bi-clipboard-check-fill"></i>
                     </div>
                 </div>
-                <div class="progress mt-3" style="height: 4px;">
-                    <div class="progress-bar bg-success" role="progressbar" style="width: 75%"></div>
+                <div class="progress mt-3" style="height: 4px; background: #FEF3C7;">
+                    <div class="progress-bar" style="width: 75%; background: var(--ma-success);"></div>
                 </div>
             </div>
         </div>
@@ -76,12 +60,12 @@
                             <i class="bi bi-exclamation-circle-fill"></i> <strong>4</strong> Kritis &bull; 10 Dalam Proses
                         </div>
                     </div>
-                    <div class="card-stat-icon bg-danger bg-opacity-10 text-danger">
+                    <div class="card-stat-icon bg-danger">
                         <i class="bi bi-exclamation-triangle-fill"></i>
                     </div>
                 </div>
-                <div class="progress mt-3" style="height: 4px;">
-                    <div class="progress-bar bg-danger" role="progressbar" style="width: 35%"></div>
+                <div class="progress mt-3" style="height: 4px; background: #FEF3C7;">
+                    <div class="progress-bar" style="width: 35%; background: var(--ma-danger);"></div>
                 </div>
             </div>
         </div>
@@ -92,17 +76,17 @@
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <div class="card-stat-title">Temuan Selesai</div>
-                        <div class="card-stat-value text-primary">28</div>
-                        <div class="card-stat-sub text-primary">
+                        <div class="card-stat-value" style="color: var(--ma-teal);">28</div>
+                        <div class="card-stat-sub" style="color: var(--ma-teal-dark);">
                             <i class="bi bi-patch-check-fill"></i> <strong>23</strong> Terverifikasi &bull; 5 Menunggu Review
                         </div>
                     </div>
-                    <div class="card-stat-icon bg-info bg-opacity-10 text-info">
+                    <div class="card-stat-icon">
                         <i class="bi bi-check2-all"></i>
                     </div>
                 </div>
-                <div class="progress mt-3" style="height: 4px;">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 66.7%"></div>
+                <div class="progress mt-3" style="height: 4px; background: #FEF3C7;">
+                    <div class="progress-bar" style="width: 66.7%; background: var(--ma-teal);"></div>
                 </div>
             </div>
         </div>
@@ -112,41 +96,41 @@
     <div class="row g-3 mb-4">
         <!-- Chart 1: Kepatuhan per 5 Kelompok -->
         <div class="col-lg-7">
-            <div class="card border-0 shadow-sm rounded-3 h-100">
-                <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+            <div class="table-card h-100">
+                <div class="table-band">
                     <div>
-                        <h6 class="fw-bold text-dark mb-0"><i class="bi bi-bar-chart-fill text-primary me-2"></i>Persentase Kelengkapan Data SIKEP per Kelompok</h6>
-                        <small class="text-muted">Berdasarkan 5 Pilar Master Kamus Monitoring</small>
+                        <h2><i class="bi bi-bar-chart-fill me-2"></i>Persentase Kelengkapan Data SIKEP per Kelompok</h2>
+                        <div class="sub">Berdasarkan 5 Pilar Master Kamus Monitoring</div>
                     </div>
-                    <span class="badge bg-light text-dark border">Rata-rata: <strong>81.8%</strong></span>
+                    <span class="period-pill">Rata-rata: <strong>81.8%</strong></span>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-3">
                     <canvas id="kelompokChart" height="230"></canvas>
                 </div>
-                <div class="card-footer bg-light bg-opacity-50 border-top py-2 small d-flex justify-content-between text-muted">
-                    <span>Target Standar Mahkamah Agung: &ge; 85%</span>
-                    <a href="{{ route('kamus.index') }}" class="text-decoration-none">Lihat Matriks Kamus &rarr;</a>
+                <div style="background: #F8FAFA; border-top: 1px solid var(--ma-border); padding: 0.6rem 1.25rem;" class="small d-flex justify-content-between align-items-center">
+                    <span class="text-muted">Target Standar Mahkamah Agung: &ge; 85%</span>
+                    <a href="{{ route('kamus.index') }}" class="fw-semibold" style="color: var(--ma-teal); text-decoration: none;">Lihat Matriks Kamus &rarr;</a>
                 </div>
             </div>
         </div>
 
         <!-- Chart 2: Status Temuan & Tren -->
         <div class="col-lg-5">
-            <div class="card border-0 shadow-sm rounded-3 h-100">
-                <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+            <div class="table-card h-100">
+                <div class="table-band">
                     <div>
-                        <h6 class="fw-bold text-dark mb-0"><i class="bi bi-pie-chart-fill text-warning me-2"></i>Komposisi Status Tindak Lanjut</h6>
-                        <small class="text-muted">Total 42 Catatan Temuan Periode Ini</small>
+                        <h2><i class="bi bi-pie-chart-fill me-2"></i>Komposisi Status Tindak Lanjut</h2>
+                        <div class="sub">Total 42 Catatan Temuan Periode Ini</div>
                     </div>
                 </div>
-                <div class="card-body d-flex flex-column justify-content-center">
+                <div class="card-body d-flex flex-column justify-content-center p-3">
                     <div style="max-height: 210px;" class="d-flex justify-content-center">
                         <canvas id="statusChart"></canvas>
                     </div>
-                    <div class="mt-3 pt-2 border-top small text-center text-muted">
-                        <span class="badge badge-status badge-diverifikasi me-1">Diverifikasi: 23</span>
-                        <span class="badge badge-status badge-proses me-1">Proses: 10</span>
-                        <span class="badge badge-status badge-belum">Belum Ditindak: 4</span>
+                    <div class="mt-3 pt-2" style="border-top: 1px solid var(--ma-border); font-size: 0.8rem; text-align: center; color: var(--ma-text-muted);">
+                        <span class="badge-status badge-diverifikasi me-1">Diverifikasi: 23</span>
+                        <span class="badge-status badge-proses me-1">Proses: 10</span>
+                        <span class="badge-status badge-belum">Belum Ditindak: 4</span>
                     </div>
                 </div>
             </div>
@@ -154,13 +138,13 @@
     </div>
 
     <!-- Urgent Action Items Table -->
-    <div class="card border-0 shadow-sm rounded-3 mb-4">
-        <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+    <div class="table-card mb-4">
+        <div class="table-band">
             <div>
-                <h6 class="fw-bold text-dark mb-0"><i class="bi bi-bell-fill text-danger me-2"></i>Daftar Temuan Membutuhkan Tindak Lanjut Segera</h6>
-                <small class="text-muted">Temuan berstatus belum selesai atau mendekati batas waktu</small>
+                <h2><i class="bi bi-bell-fill me-2"></i>Daftar Temuan Membutuhkan Tindak Lanjut Segera</h2>
+                <div class="sub">Temuan berstatus belum selesai atau mendekati batas waktu</div>
             </div>
-            <a href="{{ route('temuan.index') }}" class="btn btn-sm btn-outline-primary">
+            <a href="{{ route('temuan.index') }}" class="btn btn-sm btn-ghost" style="background: #FFFFFF; border-color: var(--ma-border);">
                 Lihat Semua Temuan (14) &rarr;
             </a>
         </div>
@@ -186,7 +170,7 @@
                             <div class="small text-muted">NIP: 198504122011011003 &bull; Hakim Pratama</div>
                         </td>
                         <td>
-                            <span class="badge bg-light text-primary border">C. Pengembangan Kompetensi</span>
+                            <span class="badge badge-tervalidasi">C. Pengembangan Kompetensi</span>
                             <div class="small text-muted mt-1">C.1 Pendidikan Formal</div>
                         </td>
                         <td>
@@ -198,9 +182,9 @@
                             <div class="small text-danger">Sisa 7 Hari</div>
                         </td>
                         <td><span class="badge bg-danger">Tinggi</span></td>
-                        <td><span class="badge badge-status badge-belum">Belum Ditindak</span></td>
+                        <td><span class="badge-status badge-belum">Belum Ditindak</span></td>
                         <td class="text-end">
-                            <a href="{{ route('temuan.show', 1) }}" class="btn btn-sm btn-primary py-1 px-2">
+                            <a href="{{ route('temuan.show', 1) }}" class="btn btn-sm btn-teal py-1 px-2">
                                 <i class="bi bi-pencil-square me-1"></i> Tindak Lanjut
                             </a>
                         </td>
@@ -212,7 +196,7 @@
                             <div class="small text-muted">NIP: 199009182015032004 &bull; Pengelola Perkara</div>
                         </td>
                         <td>
-                            <span class="badge bg-light text-primary border">B. Riwayat Pekerjaan</span>
+                            <span class="badge badge-tervalidasi">B. Riwayat Pekerjaan</span>
                             <div class="small text-muted mt-1">B.3 Pangkat/Golongan</div>
                         </td>
                         <td>
@@ -223,10 +207,10 @@
                             <span class="text-dark"><i class="bi bi-clock me-1"></i>28 Okt 2026</span>
                             <div class="small text-muted">Sisa 10 Hari</div>
                         </td>
-                        <td><span class="badge bg-warning text-dark">Sedang</span></td>
-                        <td><span class="badge badge-status badge-proses">Dalam Proses</span></td>
+                        <td><span class="badge badge-belum-lengkap">Sedang</span></td>
+                        <td><span class="badge-status badge-proses">Dalam Proses</span></td>
                         <td class="text-end">
-                            <a href="{{ route('temuan.show', 2) }}" class="btn btn-sm btn-primary py-1 px-2">
+                            <a href="{{ route('temuan.show', 2) }}" class="btn btn-sm btn-teal py-1 px-2">
                                 <i class="bi bi-pencil-square me-1"></i> Tindak Lanjut
                             </a>
                         </td>
@@ -238,7 +222,7 @@
                             <div class="small text-muted">NIP: 198003112006041008 &bull; Panitera Pengganti</div>
                         </td>
                         <td>
-                            <span class="badge bg-light text-primary border">A. Data Pokok</span>
+                            <span class="badge badge-tervalidasi">A. Data Pokok</span>
                             <div class="small text-muted mt-1">A.4 Pasangan</div>
                         </td>
                         <td>
@@ -249,10 +233,10 @@
                             <span class="text-dark"><i class="bi bi-clock me-1"></i>30 Okt 2026</span>
                             <div class="small text-muted">Sisa 12 Hari</div>
                         </td>
-                        <td><span class="badge bg-info text-white">Rendah</span></td>
-                        <td><span class="badge badge-status badge-proses">Dalam Proses</span></td>
+                        <td><span class="badge badge-selesai">Rendah</span></td>
+                        <td><span class="badge-status badge-proses">Dalam Proses</span></td>
                         <td class="text-end">
-                            <a href="{{ route('temuan.show', 3) }}" class="btn btn-sm btn-primary py-1 px-2">
+                            <a href="{{ route('temuan.show', 3) }}" class="btn btn-sm btn-teal py-1 px-2">
                                 <i class="bi bi-pencil-square me-1"></i> Tindak Lanjut
                             </a>
                         </td>
@@ -264,7 +248,7 @@
                             <div class="small text-muted">NIP: 199305142019031005 &bull; Pranata Komputer</div>
                         </td>
                         <td>
-                            <span class="badge bg-light text-primary border">E. Lain-Lain</span>
+                            <span class="badge badge-tervalidasi">E. Lain-Lain</span>
                             <div class="small text-muted mt-1">E.4 LHKPN / LHKASN</div>
                         </td>
                         <td>
@@ -276,9 +260,9 @@
                             <div class="small text-danger">Sisa 4 Hari</div>
                         </td>
                         <td><span class="badge bg-danger">Tinggi</span></td>
-                        <td><span class="badge badge-status badge-belum">Belum Ditindak</span></td>
+                        <td><span class="badge-status badge-belum">Belum Ditindak</span></td>
                         <td class="text-end">
-                            <a href="{{ route('temuan.show', 4) }}" class="btn btn-sm btn-primary py-1 px-2">
+                            <a href="{{ route('temuan.show', 4) }}" class="btn btn-sm btn-teal py-1 px-2">
                                 <i class="bi bi-pencil-square me-1"></i> Tindak Lanjut
                             </a>
                         </td>
@@ -304,7 +288,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 {
                     label: 'Capaian Valid (%)',
                     data: [92, 78, 85, 64, 90],
-                    backgroundColor: '#1E3A8A',
+                    backgroundColor: '#D97706',
                     borderRadius: 6,
                     barPercentage: 0.6
                 },
@@ -354,7 +338,7 @@ document.addEventListener("DOMContentLoaded", function() {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } }
+                legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 11 } } },
             },
             cutout: '68%'
         }

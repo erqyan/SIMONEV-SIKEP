@@ -1,199 +1,292 @@
 @extends('layouts.app')
 
-@section('title', 'Detail & Form Tindak Lanjut Temuan')
+@section('title', 'Detail & Tindak Lanjut Temuan')
 
 @section('content')
 <div class="container-fluid px-0">
 
-    <!-- Top Breadcrumb -->
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0 small">
-                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" class="text-decoration-none">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="{{ route('temuan.index') }}" class="text-decoration-none">Daftar Temuan</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Tindak Lanjut TMN/2026/001</li>
-            </ol>
-        </nav>
-        <a href="{{ route('temuan.index') }}" class="btn btn-sm btn-outline-secondary">
-            <i class="bi bi-arrow-left me-1"></i> Kembali ke Daftar Temuan
-        </a>
-    </div>
-
-    <div class="row g-4">
-        <!-- Left Column: Detail Temuan -->
-        <div class="col-lg-5">
-            <div class="card border-0 shadow-sm rounded-3 mb-4">
-                <div class="card-header bg-white border-bottom py-3">
-                    <span class="badge bg-danger mb-1">Tingkat Urgensi: Tinggi</span>
-                    <h5 class="fw-bold text-dark mb-0">TMN/2026/001: Ijazah S2 Magister Hukum Belum Tercatat</h5>
-                </div>
-                <div class="card-body p-4">
-                    <div class="mb-3">
-                        <label class="text-muted small fw-semibold text-uppercase d-block" style="font-size: 0.72rem;">Pegawai Terkait</label>
-                        <div class="fw-bold text-dark fs-6">Ahmad Fauzi, S.H.</div>
-                        <div class="small text-muted">NIP: 198504122011011003 &bull; Hakim Pratama</div>
+    <!-- Banner: Temuan code + pegawai + status -->
+    <div class="table-card mb-3">
+        <div class="table-toolbar mb-0" style="padding: 1.25rem 1rem 0;">
+            <div class="left">
+                <div class="d-flex align-items-center gap-3">
+                    <div class="rounded-circle d-flex align-items-center justify-content-center fw-bold fs-3"
+                         style="width: 72px; height: 72px; background: #FEF3C7; color: var(--ma-teal-dark); border: 2px solid var(--ma-teal); flex-shrink: 0;">
+                        AF
                     </div>
-
-                    <div class="mb-3">
-                        <label class="text-muted small fw-semibold text-uppercase d-block" style="font-size: 0.72rem;">Kelompok & Parameter Kamus</label>
-                        <span class="badge bg-light text-primary border">Kelompok C. Pengembangan Kompetensi</span>
-                        <div class="small fw-semibold text-dark mt-1">C.1 Pendidikan Formal (Jenjang Magister / S2)</div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="text-muted small fw-semibold text-uppercase d-block" style="font-size: 0.72rem;">Uraian Temuan Ketidaksesuaian</label>
-                        <div class="p-3 bg-light rounded-3 text-dark small border">
-                            Pada aplikasi SIKEP Pusat, pendidikan terakhir tercatat masih Sarjana Hukum (S1). Padahal ybs telah lulus program Magister Hukum (S2) dan telah mengantongi ijazah sah.
+                    <div>
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <span class="badge-code badge badge-status">TMN/2026/001</span>
+                            <span class="badge-status badge-belum" style="padding:0.2rem 0.55rem;">Belum Ditindaklanjuti</span>
+                            <span class="badge" style="background:#FEF3C7;color:#B45309;border:1px solid #FCD34D;">Urgensi Tinggi</span>
                         </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="text-muted small fw-semibold text-uppercase d-block" style="font-size: 0.72rem;">Rekomendasi Tindakan</label>
-                        <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-3 small border border-primary border-opacity-25">
-                            <i class="bi bi-lightbulb-fill me-1"></i> Input riwayat pendidikan S2 pada menu Pendidikan SIKEP, unggah scan SK Pencantuman Gelar dari BKN/MA, dan lampirkan scan ijazah serta transkrip asli.
-                        </div>
-                    </div>
-
-                    <div class="row g-2 text-muted small border-top pt-3">
-                        <div class="col-6">
-                            <div>Tanggal Ditemukan:</div>
-                            <strong class="text-dark">14 Oktober 2026</strong>
-                        </div>
-                        <div class="col-6">
-                            <div>Batas Waktu:</div>
-                            <strong class="text-danger">25 Oktober 2026</strong>
-                        </div>
+                        <h2 class="h5 fw-bold mb-0 mt-1">Ahmad Fauzi, S.H.</h2>
+                        <div class="small text-muted">NIP 198504122011011003 &bull; Hakim Pratama &bull; PA Medan Kelas IA</div>
                     </div>
                 </div>
             </div>
-
-            <!-- Status Timeline Card -->
-            <div class="card border-0 shadow-sm rounded-3">
-                <div class="card-header bg-white border-bottom py-3">
-                    <h6 class="fw-bold text-dark mb-0 small text-uppercase" style="letter-spacing: 0.5px;">
-                        <i class="bi bi-diagram-3-fill me-1 text-primary"></i> Siklus Tahapan Status
-                    </h6>
+            <div class="right">
+                <div class="text-end me-3" style="max-width:220px;">
+                    <div class="small text-muted">Batas Waktu Tuntas</div>
+                    <div class="fw-bold" style="color:var(--ma-danger);">25 Okt 2026 &mdash; Tersisa 7 Hari</div>
                 </div>
-                <div class="card-body p-4">
-                    <div class="position-relative ps-4 border-start border-2 border-primary">
-                        <div class="mb-3 position-relative">
-                            <i class="bi bi-check-circle-fill text-success position-absolute" style="left: -25px; top: 0;"></i>
-                            <div class="fw-bold text-dark small">1. Temuan Dicatat</div>
-                            <div class="text-muted" style="font-size: 0.75rem;">14 Okt 2026 oleh Petugas Kepegawaian</div>
+                <a href="{{ route('temuan.index') }}" class="btn-outline-teal btn btn-sm" style="border-color:var(--ma-teal);color:var(--ma-teal);">
+                    <i class="bi bi-arrow-left me-1"></i> Kembali
+                </a>
+            </div>
+        </div>
+        <!-- progress strip -->
+        <div style="padding:0.75rem 1rem; border-top:1px solid var(--ma-border);">
+            <div class="d-flex justify-content-between small mb-1">
+                <span class="text-muted fw-semibold">Progres Tindak Lanjut</span>
+                <span class="fw-bold" style="color:var(--ma-teal);">25%</span>
+            </div>
+            <div style="height:6px; background:#FEF3C7; border-radius:3px; overflow:hidden;">
+                <div style="width:25%; height:100%; background:var(--ma-teal);"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab section -->
+    <div class="table-card">
+        <!-- tab nav -->
+        <div style="display:flex; gap:0.5rem; padding:0.75rem 1rem 0; border-bottom:1px solid var(--ma-border); flex-wrap:wrap;">
+            <div class="tab-teal active">
+                <i class="bi bi-journal-text"></i> Detail Temuan
+            </div>
+            <div class="tab-teal">
+                <i class="bi bi-pencil-square"></i> Form Tindak Lanjut
+            </div>
+            <div class="tab-teal">
+                <i class="bi bi-clock-history"></i> Riwayat &amp; Audit Trail
+            </div>
+        </div>
+
+        <!-- TAB 1: Detail Temuan -->
+        <div style="padding:1.25rem 1.25rem 0;">
+            <div class="row g-3">
+                <div class="col-lg-7">
+                    <div class="form-card">
+                        <div class="form-card-header">
+                            <i class="bi bi-exclamation-triangle-fill" style="color:var(--ma-gold);"></i>
+                            <h6 class="mb-0">Uraian Ketidaksesuaian Data SIKEP</h6>
                         </div>
-                        <div class="mb-3 position-relative">
-                            <i class="bi bi-record-circle-fill text-primary position-absolute" style="left: -25px; top: 0;"></i>
-                            <div class="fw-bold text-primary small">2. Dalam Proses Tindak Lanjut</div>
-                            <div class="text-muted" style="font-size: 0.75rem;">Tahap aktif saat ini (Menyiapkan Dokumen)</div>
+                        <p class="small text-muted mb-2">Ditemukan pada monitoring Semester I 2026 oleh Petugas Kepegawaian.</p>
+                        <div style="background:#FFFBEB; border:1px solid #FDE68A; border-left:4px solid var(--ma-gold); border-radius:6px; padding:0.85rem 1rem; font-size:0.85rem; color:#78350F;">
+                            Pendidikan terakhir pada SIKEP pusat masih tercatat <strong>S1 Ilmu Hukum</strong>. Padahal ybs. telah menyelesaikan program Magister Hukum (S2), IPK 3.85, nilai akreditasi A, dan telah mengantongi ijazah sah (No. 451/MH/2025).
                         </div>
-                        <div class="mb-3 position-relative opacity-50">
-                            <i class="bi bi-circle text-muted position-absolute" style="left: -25px; top: 0;"></i>
-                            <div class="fw-bold text-dark small">3. Diajukan Selesai</div>
-                            <div class="text-muted" style="font-size: 0.75rem;">Menunggu verifikasi pimpinan satker</div>
+
+                        <div class="form-card-header mt-4">
+                            <i class="bi bi-lightbulb-fill" style="color:var(--ma-teal);"></i>
+                            <h6 class="mb-0">Rekomendasi Tindakan</h6>
                         </div>
-                        <div class="position-relative opacity-50">
-                            <i class="bi bi-circle text-muted position-absolute" style="left: -25px; top: 0;"></i>
-                            <div class="fw-bold text-dark small">4. Diverifikasi & Selesai</div>
-                            <div class="text-muted" style="font-size: 0.75rem;">Disetujui dan masuk laporan resmi</div>
+                        <ul class="small" style="color:var(--ma-text-muted); margin:0.5rem 0 0; padding-left:1.1rem; line-height:1.9;">
+                            <li>Input riwayat pendidikan S2 pada menu <strong class="text-dark">Riwayat Pendidikan</strong> SIKEP.</li>
+                            <li>Unggah scan <strong class="text-dark">SK Pencantuman Gelar</strong> dari BKN/MA-RI.</li>
+                            <li>Lampirkan scan ijazah dan transkrip nilai asli (format PDF, maks. 5 MB).</li>
+                        </ul>
+                    </div>
+
+                    <div class="form-card mt-3">
+                        <div class="form-card-header">
+                            <i class="bi bi-arrow-left-right" style="color:var(--ma-teal);"></i>
+                            <h6 class="mb-0">Rekam Jejak Data (Audit Trail)</h6>
+                        </div>
+                        <div class="detail-table">
+                            <div class="detail-row">
+                                <div class="label">Nilai Data Lama</div>
+                                <div class="value">S1 &ndash; Ilmu Hukum <span class="badge-status badge-belum" style="padding:0.15rem 0.45rem; margin-left:0.5rem;">Ketidaksesuaian</span></div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="label">Nilai Data Target</div>
+                                <div class="value">S2 &ndash; Magister Ilmu Hukum</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="label">Dasar Dokumen</div>
+                                <div class="value">SK Pencantuman Gelar BKN No. 128/PG/BKN/2026</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="label">Periode Terdampak</div>
+                                <div class="value">Semester I 2026 &mdash; menunggu koreksi input</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <div class="form-card">
+                        <div class="form-card-header">
+                            <i class="bi bi-diagram-3-fill" style="color:var(--ma-teal);"></i>
+                            <h6 class="mb-0">Siklus Tahapan Status</h6>
+                        </div>
+                        <div class="position-relative" style="padding-left:1.5rem; border-left:2px solid #FEF3C7; margin-left:0.5rem;">
+                            <div class="mb-3 position-relative">
+                                <i class="bi bi-check-circle-fill" style="position:absolute; left:-23px; top:1px; color:var(--ma-success); background:var(--ma-surface);"></i>
+                                <div class="fw-bold small">Temuan Dicatat</div>
+                                <div class="small text-muted">14 Okt 2026 &bull; Rina Anggraini (Petugas)</div>
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <i class="bi bi-record-circle-fill" style="position:absolute; left:-23px; top:1px; color:var(--ma-teal); background:var(--ma-surface);"></i>
+                                <div class="fw-bold small" style="color:var(--ma-teal);">Tindak Lanjut &amp; Revisi Data</div>
+                                <div class="small text-muted">Tahap aktif &mdash; menyiapkan dokumen perbaikan</div>
+                            </div>
+                            <div class="mb-3 position-relative">
+                                <i class="bi bi-circle" style="position:absolute; left:-23px; top:4px; color:#CBD5E1; background:var(--ma-surface);"></i>
+                                <div class="fw-bold small text-muted">Diajukan Selesai</div>
+                                <div class="small text-muted">Menunggu submit ke reviewer</div>
+                            </div>
+                            <div class="position-relative">
+                                <i class="bi bi-circle" style="position:absolute; left:-23px; top:4px; color:#CBD5E1; background:var(--ma-surface);"></i>
+                                <div class="fw-bold small text-muted">Diverifikasi Pimpinan</div>
+                                <div class="small text-muted">Sah dan masuk laporan resmi</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-card mt-3">
+                        <div class="form-card-header">
+                            <i class="bi bi-info-circle" style="color:var(--ma-text-muted);"></i>
+                            <h6 class="mb-0">Informasi Temuan</h6>
+                        </div>
+                        <div class="detail-table">
+                            <div class="detail-row">
+                                <div class="label">Kode Temuan</div>
+                                <div class="value"><span class="badge-code badge badge-status">TMN/2026/001</span></div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="label">Kelompok Kamus</div>
+                                <div class="value"><span class="badge-kelompok badge badge-status">C. Kompetensi</span> C.1 Pendidikan Formal</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="label">Tanggal Ditemukan</div>
+                                <div class="value">14 Oktober 2026</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="label">Batas Tuntas</div>
+                                <div class="value fw-bold" style="color:var(--ma-danger);">25 Oktober 2026 (Tersisa 7 Hari)</div>
+                            </div>
+                            <div class="detail-row">
+                                <div class="label">Penanggung Jawab</div>
+                                <div class="value">Rina Anggraini, S.E. &mdash; Petugas Kepegawaian</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Right Column: Form Realisasi Tindak Lanjut & Upload Bukti -->
-        <div class="col-lg-7">
-            <div class="card border-0 shadow-sm rounded-3">
-                <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
-                    <div>
-                        <h6 class="fw-bold text-dark mb-0"><i class="bi bi-pencil-square text-primary me-2"></i>Form Realisasi Tindak Lanjut & Pemutakhiran</h6>
-                        <small class="text-muted">Isi tindakan perbaikan di SIKEP dan unggah berkas bukti sah</small>
+        <!-- TAB 2: Form Tindak Lanjut -->
+        <div style="padding:1.25rem 1.25rem 0;">
+            <div class="row g-3">
+                <div class="col-lg-8">
+                    <div class="form-card">
+                        <div class="form-card-header d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class="bi bi-pencil-square" style="color:var(--ma-teal);"></i>
+                                <h6 class="mb-0">Realisasi Tindak Lanjut &amp; Pemutakhiran Data</h6>
+                            </div>
+                            <span class="badge-status badge-proses" style="padding:0.25rem 0.6rem;"><i class="bi bi-hourglass-split"></i> Sedang Dikerjakan</span>
+                        </div>
+
+                        <div class="p-3" style="padding:1rem 1.25rem 0;">
+                            <label class="form-label small fw-semibold">Uraian Tindakan Perbaikan di SIKEP <span style="color:var(--ma-danger);">*</span></label>
+                            <textarea class="form-control input-bordered" rows="3" placeholder="Jelaskan langkah perbaikan yang telah / akan dilakukan..." required>Telah dilakukan entry riwayat pendidikan S2 Magister Hukum pada menu Riwayat Pendidikan di aplikasi SIKEP. Nilai akreditasi A, IPK 3.85, nomor ijazah 451/MH/2025.</textarea>
+
+                            <div class="row g-2 mt-3">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Nilai Data Baru <span style="color:var(--ma-danger);">*</span></label>
+                                    <input type="text" class="form-control form-control-sm input-bordered" value="S2 - Magister Ilmu Hukum" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Dasar Surat / Dokumen <span style="color:var(--ma-danger);">*</span></label>
+                                    <input type="text" class="form-control form-control-sm input-bordered" value="SK Pencantuman Gelar BKN No: 128/PG/BKN/2026" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Tanggal Pembaruan di SIKEP <span style="color:var(--ma-danger);">*</span></label>
+                                    <input type="date" class="form-control form-control-sm input-bordered" value="{{ date('Y-m-d') }}" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-semibold">Catatan untuk Reviewer / Kasubbag</label>
+                                    <input type="text" class="form-control form-control-sm input-bordered" placeholder="Catatan opsional sebelum diverifikasi...">
+                                </div>
+                            </div>
+
+                            <!-- upload bukti -->
+                            <label class="form-label small fw-semibold mt-4">Unggah Dokumen Bukti (PDF / Scan Ijazah) <span style="color:var(--ma-danger);">*</span></label>
+                            <div class="file-drop">
+                                <i class="bi bi-cloud-arrow-up-fill"></i>
+                                <div class="fw-semibold small">Pilih file atau seret &amp; lepas ke sini</div>
+                                <div class="small text-muted">Maksimal 5 MB &mdash; format .pdf, .jpg, .png</div>
+                            </div>
+                            <div class="mt-2 d-flex align-items-center gap-2 small">
+                                <i class="bi bi-file-earmark-pdf" style="color:var(--ma-danger);"></i>
+                                <span>File terpilih: <strong>Scan_Ijazah_S2_Ahmad_Fauzi.pdf</strong> (1.4 MB)</span>
+                                <button class="icon-btn danger ms-auto"><i class="bi bi-x-circle"></i></button>
+                            </div>
+                        </div>
                     </div>
-                    <span class="badge bg-warning text-dark"><i class="bi bi-hourglass-split me-1"></i> Sedang Dikerjakan</span>
                 </div>
 
-                <div class="card-body p-4">
-                    <form action="#" onsubmit="event.preventDefault(); alert('Tindak lanjut berhasil diajukan untuk verifikasi pimpinan!'); window.location.href='{{ route('temuan.index') }}';">
-                        
-                        <div class="mb-3">
-                            <label class="form-label small fw-semibold text-dark">Uraian Tindakan Perbaikan yang Telah Dilakukan di SIKEP <span class="text-danger">*</span></label>
-                            <textarea class="form-control small" rows="3" placeholder="Jelaskan langkah yang telah Anda lakukan..." required>Telah dilakukan entry riwayat pendidikan S2 Magister Hukum pada menu Riwayat Pendidikan di aplikasi SIKEP. Nilai akreditasi A, IPK 3.85, nomor ijazah 451/MH/2025.</textarea>
+                <div class="col-lg-4">
+                    <div class="form-card">
+                        <div class="form-card-header">
+                            <i class="bi bi-shield-check" style="color:var(--ma-success);"></i>
+                            <h6 class="mb-0">Status &amp; Tindakan</h6>
                         </div>
-
-                        <!-- Audit Trail Data Lama vs Baru -->
-                        <div class="p-3 bg-light rounded-3 border mb-3">
-                            <div class="fw-bold text-dark small mb-2"><i class="bi bi-arrow-left-right text-primary me-1"></i> Rekam Jejak Pembaruan Data (Audit Trail):</div>
-                            <div class="row g-2 mb-2">
-                                <div class="col-md-6">
-                                    <label class="form-label small text-muted mb-0">Nilai Data Lama (Sebelumnya)</label>
-                                    <input type="text" class="form-control form-control-sm bg-white" value="S1 - Ilmu Hukum" readonly>
+                        <div class="p-3" style="padding:1rem 1.25rem 0;">
+                            <div class="detail-table">
+                                <div class="detail-row">
+                                    <div class="label">Status Saat Ini</div>
+                                    <div class="value"><span class="badge-status badge-belum">Belum Ditindaklanjuti</span></div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label class="form-label small text-muted mb-0">Nilai Data Baru (Setelah Koreksi) <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control form-control-sm" value="S2 - Magister Ilmu Hukum" required>
+                                <div class="detail-row">
+                                    <div class="label">Periode</div>
+                                    <div class="value">Semester I 2026</div>
                                 </div>
-                            </div>
-                            <div class="row g-2">
-                                <div class="col-md-7">
-                                    <label class="form-label small text-muted mb-0">Dasar Surat / Dokumen Perubahan <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control form-control-sm" value="SK Pencantuman Gelar BKN No: 128/PG/BKN/2026" required>
-                                </div>
-                                <div class="col-md-5">
-                                    <label class="form-label small text-muted mb-0">Tanggal Pembaruan di SIKEP <span class="text-danger">*</span></label>
-                                    <input type="date" class="form-control form-control-sm" value="{{ date('Y-m-d') }}" required>
+                                <div class="detail-row">
+                                    <div class="label">Sistem Notifikasi</div>
+                                    <div class="value small">Reminder otomatis terkirim tiap 48 jam sebelum batas</div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Upload Berkas Bukti -->
-                        <div class="mb-4">
-                            <label class="form-label small fw-semibold text-dark">Unggah Dokumen Bukti Pendukung (PDF/Scan Ijazah) <span class="text-danger">*</span></label>
-                            <div class="border border-2 border-dashed rounded-3 p-4 text-center bg-light bg-opacity-50">
-                                <i class="bi bi-cloud-arrow-up-fill fs-2 text-primary d-block mb-1"></i>
-                                <span class="small fw-semibold text-dark d-block">Pilih file atau seret file PDF/JPG ke sini</span>
-                                <span class="text-muted" style="font-size: 0.75rem;">Maksimal ukuran file: 5 MB (Format: .pdf, .jpg, .png)</span>
-                                <input type="file" class="form-control form-control-sm mt-3 mx-auto" style="max-width: 300px;">
-                            </div>
-                            <div class="mt-2 small text-muted d-flex align-items-center gap-2">
-                                <i class="bi bi-file-earmark-pdf text-danger fs-5"></i>
-                                <span>Contoh file terpilih: <strong>Scan_Ijazah_S2_Ahmad_Fauzi.pdf</strong> (1.4 MB)</span>
-                            </div>
-                        </div>
+                            <hr style="border-color:var(--ma-border);">
 
-                        <!-- Catatan untuk Reviewer / Pimpinan -->
-                        <div class="mb-4">
-                            <label class="form-label small fw-semibold text-dark">Catatan Petugas untuk Reviewer / Kasubbag</label>
-                            <input type="text" class="form-control form-control-sm" placeholder="Catatan opsional kepada pimpinan sebelum diverifikasi...">
+                            @if(\App\Services\AccessControl::can('input_tindak_lanjut'))
+                                <div class="d-grid gap-2">
+                                    <button type="button" class="btn-teal btn" onclick="alert('Tindak lanjut berhasil diajukan untuk verifikasi pimpinan!'); window.location.href='{{ route('temuan.index') }}';">
+                                        <i class="bi bi-send-check-fill me-2"></i>Ajukan untuk Verifikasi Pimpinan
+                                    </button>
+                                    <button type="button" class="btn-ghost btn" onclick="alert('Draf tindak lanjut disimpan sementara.')">
+                                        <i class="bi bi-floppy me-2"></i>Simpan Draf
+                                    </button>
+                                </div>
+                            @elseif(\App\Services\AccessControl::can('do_verification'))
+                                <div class="d-grid gap-2">
+                                    <button type="button" class="btn-teal btn" style="background:var(--ma-success);" onclick="alert('Hasil perbaikan diverifikasi dan disetujui!'); window.location.href='{{ route('temuan.index') }}';">
+                                        <i class="bi bi-check-circle-fill me-2"></i>Sahkan &amp; Setujui (Verifikasi)
+                                    </button>
+                                    <button type="button" class="btn-ghost btn" style="color:var(--ma-danger); border-color:var(--ma-danger);" onclick="alert('Berkas dikembalikan ke petugas untuk revisi.'); window.location.href='{{ route('temuan.index') }}';">
+                                        <i class="bi bi-x-circle me-2"></i>Tolak &amp; Minta Revisi
+                                    </button>
+                                </div>
+                            @else
+                                <div class="flash-alert" style="border-left-color:var(--ma-text-muted); background:#F1F5F9; color:var(--ma-text-muted);">
+                                    <i class="bi bi-info-circle me-1"></i> Mode Pemantauan Administrator &mdash; tidak dapat edit
+                                </div>
+                            @endif
                         </div>
-
-                        <!-- Submit Buttons (Role-Aware) -->
-                        <div class="d-flex justify-content-between align-items-center border-top pt-3">
-                            <a href="{{ route('temuan.index') }}" class="btn btn-sm btn-light border">Batal</a>
-                            <div class="d-flex gap-2">
-                                @if(\App\Services\AccessControl::can('input_tindak_lanjut'))
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="alert('Draf tindak lanjut disimpan sementara.')">
-                                        <i class="bi bi-floppy me-1"></i> Simpan Draf
-                                    </button>
-                                    <button type="submit" class="btn btn-sm btn-primary">
-                                        <i class="bi bi-send-check-fill me-1"></i> Ajukan untuk Verifikasi Pimpinan
-                                    </button>
-                                @elseif(\App\Services\AccessControl::can('do_verification'))
-                                    <button type="button" class="btn btn-sm btn-outline-danger" onclick="alert('Berkas tindak lanjut dikembalikan kepada petugas untuk revisi.'); window.location.href='{{ route('temuan.index') }}';">
-                                        <i class="bi bi-x-circle me-1"></i> Tolak / Minta Revisi
-                                    </button>
-                                    <button type="button" class="btn btn-sm btn-success" onclick="alert('Hasil perbaikan diverifikasi dan disetujui!'); window.location.href='{{ route('temuan.index') }}';">
-                                        <i class="bi bi-check-circle-fill me-1"></i> Sahkan & Setujui (Verify)
-                                    </button>
-                                @else
-                                    <span class="badge bg-light text-muted border px-3 py-2">
-                                        <i class="bi bi-info-circle me-1"></i> Mode Pemantauan Administrator
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                    </form>
+                    </div>
                 </div>
+            </div>
+
+            <!-- role-aware footer -->
+            <div style="display:flex; justify-content:flex-end; gap:0.5rem; padding:1rem 1.25rem; border-top:1px solid var(--ma-border);">
+                <a href="{{ route('temuan.index') }}" class="btn-ghost btn btn-sm">Batal</a>
+                @if(\App\Services\AccessControl::can('input_tindak_lanjut') || \App\Services\AccessControl::can('do_verification'))
+                    <button type="button" class="btn-teal btn btn-sm" onclick="alert('Perubahan disimpan.'); window.location.href='{{ route('temuan.index') }}';">
+                        <i class="bi bi-save me-1"></i> Simpan &amp; Lanjutkan
+                    </button>
+                @endif
             </div>
         </div>
     </div>
