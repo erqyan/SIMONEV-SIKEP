@@ -40,6 +40,7 @@
             --ma-warning: #F59E0B;
             --ma-danger: #EF4444;
             --sidebar-width: 264px;
+            --navbar-height: 62px;
         }
 
         body {
@@ -59,11 +60,14 @@
             background: var(--ma-teal);
             color: #FFFFFF;
             padding: 0.75rem 1.5rem;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1050;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
-            min-height: 58px;
+            height: var(--navbar-height);
+            box-sizing: border-box;
         }
 
         .top-navbar .brand-logo {
@@ -142,11 +146,11 @@
         /* ================= Sidebar (Dark) ================= */
         #sidebar {
             width: var(--sidebar-width);
-            min-height: calc(100vh - 58px);
+            min-height: calc(100vh - var(--navbar-height));
             background: linear-gradient(180deg, var(--ma-dark) 0%, var(--ma-dark-deep) 100%);
             color: #CFD8DC;
             position: fixed;
-            top: 58px;
+            top: var(--navbar-height);
             left: 0;
             bottom: 0;
             z-index: 1040;
@@ -320,6 +324,7 @@
             display: flex;
             flex-direction: column;
             transition: all 0.3s ease;
+            padding-top: var(--navbar-height);
         }
 
         /* Profile header band (dark) */
